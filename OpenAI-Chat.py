@@ -15,8 +15,12 @@ if platform.system() == 'Windows':
     os.system(f'title {header}')
 else:
     os.system(f'export PS1="{header} \w$ "')
+#
+# 
 # Load your API key from an environment variable or secret management service
 openai.api_key = ("sk-YOUR API KEY HERE")
+#
+#
 # Specify the file path for the conversation history
 hist_file = "history.json"
 # Load history file or use default history array
@@ -60,4 +64,5 @@ while next:
 if save:
     with open(hist_file, "w") as f:
         json.dump(messages, f)
+    print("Chat Saved.")
 print(response)
